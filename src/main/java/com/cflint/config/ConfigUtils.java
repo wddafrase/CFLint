@@ -42,7 +42,7 @@ public class ConfigUtils {
 	}
 
 	protected static synchronized void init() throws JAXBException {
-		CFLintConfigContext = JAXBContext.newInstance(CFLintPluginInfo.class, CFLintConfig.class);
+		CFLintConfigContext = JAXBContext.newInstance(CFLintPluginInfo.class, CFLintConfig.class, CFLintRuleGroups.class, CFLintRuleGroups.RuleSet.class);
 	}
 
 	public static String marshal(final Object obj) throws JAXBException {
@@ -149,6 +149,23 @@ public class ConfigUtils {
 		}
 
 		return descriptions;
+	}
+	
+	/**
+	 * Load the plugin rule groups
+	 *
+	 * @return CFLintPluginInfo instance of plugin definitions
+	 */
+	public static CFLintRuleGroups loadDefaultRuleSets() {
+		final InputStream jsonInputStream = ConfigUtils.class.getResourceAsStream("/cflint.rulesets.json");
+		if (jsonInputStream != null) {
+			try {
+				return unmarshalJson(jsonInputStream, CFLintRuleGroups.class);
+			} catch (final IOException e) {
+				e.printStackTrace(System.err);
+			}
+		}
+		return new CFLintRuleGroups();
 	}
 
 	static final String PLUGIN_PACKAGE = "com.cflint.plugins.core";

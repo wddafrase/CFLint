@@ -1,0 +1,121 @@
+{
+  "ruleSet": [
+    {
+      "name": "BugProne",
+      "description": "Rules that highlight potential bugs",
+      "rules": [
+        "ARG_VAR_CONFLICT",
+        "NO_DEFAULT_INSIDE_SWITCH",
+        "NESTED_CFOUTPUT",
+        "OUTPUT_ATTR",
+        "MISSING_VAR",
+        "UNUSED_LOCAL_VARIABLE",
+        "UNUSED_METHOD_ARGUMENT",
+        "COMPARE_INSTEAD_OF_ASSIGN"
+      ]
+    },    
+    {
+      "name": "Correctness",
+      "description": "Rules that encourage correctness",
+      "rules": [
+        "ARG_TYPE_MISSING",
+        "ARG_TYPE_ANY",
+        "ARG_DEFAULT_MISSING",
+        "ARG_VAR_MIXED",
+        "QUERYNEW_DATATYPE",
+        "FUNCTION_TYPE_MISSING",
+        "FUNCTION_TYPE_ANY",
+        "FILE_SHOULD_START_WITH_LOWERCASE",
+        "UNQUOTED_STRUCT_KEY"     
+      ]
+    },    
+    {
+      "name": "Practice",
+      "description": "Rules that highlight bad practice",
+      "rules": [
+        "GLOBAL_VAR",
+        "AVOID_USING_CFDUMP_TAG",
+        "AVOID_USING_CFEXECUTE_TAG",
+        "AVOID_USING_CFABORT_TAG",
+        "AVOID_USING_ABORT",
+        "AVOID_USING_WRITEDUMP",
+        "AVOID_USING_CFINSERT_TAG",
+        "AVOID_USING_CFMODULE_TAG",
+        "AVOID_USING_CFUPDATE_TAG",
+        "AVOID_USING_CFINCLUDE_TAG",
+        "AVOID_USING_ISDEBUGMODE",
+        "AVOID_USING_CREATEOBJECT", 
+        "AVOID_USING_DEBUG_ATTR", 
+        "AVOID_USING_CFSETTING_DEBUG"
+      ]
+    }, 
+    {
+      "name": "Security",
+      "description": "Rules that identify security risks",
+      "rules": [
+        "QUERYPARAM_REQ",
+        "CFQUERYPARAM_REQ"
+      ]
+    }, 
+    {
+      "name": "Complexity",
+      "description": "Rules that identify areas of complexity",
+      "rules": [
+        "COMPLEX_BOOLEAN_CHECK",
+        "EXCESSIVE_FUNCTIONS",
+        "EXCESSIVE_FUNCTION_LENGTH",
+        "EXCESSIVE_COMPONENT_LENGTH",
+        "EXCESSIVE_ARGUMENTS",
+        "FUNCTION_TOO_COMPLEX"
+      ]
+    }, 
+    {
+      "name": "Style",
+      "description": "Rules encourage good code style and documentation",
+      "rules": [
+        "COMPONENT_HINT_MISSING",
+        "FUNCTION_HINT_MISSING",
+        "ARG_HINT_MISSING",
+        "ARG_HINT_MISSING_SCRIPT",
+        "EXPLICIT_BOOLEAN_CHECK",
+        "VAR_INVALID_NAME",
+        "VAR_ALLCAPS_NAME",
+        "SCOPE_ALLCAPS_NAME",
+        "VAR_TOO_SHORT",
+        "VAR_TOO_LONG",
+        "VAR_TOO_WORDY",
+        "VAR_IS_TEMPORARY",
+        "VAR_HAS_PREFIX_OR_POSTFIX",
+        "ARGUMENT_INVALID_NAME", 
+        "ARGUMENT_ALLCAPS_NAME", 
+        "ARGUMENT_TOO_SHORT", 
+        "ARGUMENT_TOO_LONG", 
+        "ARGUMENT_TOO_WORDY", 
+        "ARGUMENT_IS_TEMPORARY", 
+        "ARGUMENT_HAS_PREFIX_OR_POSTFIX", 
+        "METHOD_INVALID_NAME", 
+        "METHOD_ALLCAPS_NAME", 
+        "METHOD_TOO_SHORT", 
+        "METHOD_TOO_LONG", 
+        "METHOD_TOO_WORDY", 
+        "METHOD_IS_TEMPORARY", 
+        "METHOD_HAS_PREFIX_OR_POSTFIX", 
+        "COMPONENT_INVALID_NAME", 
+        "COMPONENT_ALLCAPS_NAME", 
+        "COMPONENT_TOO_SHORT", 
+        "COMPONENT_TOO_LONG", 
+        "COMPONENT_TOO_WORDY", 
+        "COMPONENT_IS_TEMPORARY", 
+        "COMPONENT_HAS_PREFIX_OR_POSTFIX"
+      ]
+    }, 
+    {
+      "name": "ModernSyntax",
+      "description": "Rules encourage modern syntax",
+      "rules": [
+        "AVOID_USING_STRUCTNEW",
+        "AVOID_USING_ARRAYNEW"
+      ]
+    }
+  ]
+}
