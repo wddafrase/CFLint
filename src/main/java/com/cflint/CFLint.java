@@ -7,7 +7,6 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -141,7 +140,7 @@ public class CFLint implements IErrorReporter {
 			ScanningProgressMonitorLookAhead.createInstance(this, folderName, progressUsesThread).startPreScan();
 		}
 		scan(new File(folderName));
-		fireClose();
+		finishedAllProcessing();
 	}
 
 	public void scan(final File folderOrFile) {
@@ -825,7 +824,7 @@ public class CFLint implements IErrorReporter {
 		}
 	}
 
-	protected void fireClose() {
+	protected void finishedAllProcessing() {
 		for (final ScanProgressListener p : scanProgressListeners) {
 			p.close();
 		}

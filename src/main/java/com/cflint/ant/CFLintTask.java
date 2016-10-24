@@ -54,6 +54,7 @@ public class CFLintTask extends Task {
 			CFLintConfig config = null;
 			if (configFile != null) {
 				if (configFile.getName().toLowerCase().endsWith(".xml")) {
+					System.err.println("Warning - xml definitions are deprecated and may be removed in future releases.");
 					config = ConfigUtils.unmarshal(new FileInputStream(configFile), CFLintConfig.class);
 				} else {
 					config = ConfigUtils.unmarshalJson(new FileInputStream(configFile), CFLintConfig.class);

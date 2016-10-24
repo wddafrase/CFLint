@@ -116,6 +116,7 @@ public class ConfigUtils {
 
 		final InputStream inputStream = ConfigUtils.class.getResourceAsStream("/cflint.definition.xml");
 		if (inputStream != null) {
+			System.err.println("Warning - xml definitions are deprecated and may be removed in future releases.");
 			try {
 				return unmarshal(inputStream, CFLintPluginInfo.class);
 			} catch (final JAXBException e) {

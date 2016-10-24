@@ -315,6 +315,7 @@ public class CFLintMain {
 		if (configfile != null) {
 			try {
 				if (configfile.toLowerCase().endsWith(".xml")) {
+					System.err.println("Warning - xml definitions are deprecated and may be removed in future releases.");
 					return ConfigUtils.unmarshal(new FileInputStream(configfile), CFLintConfig.class);
 				} else {
 					return ConfigUtils.unmarshalJson(new FileInputStream(configfile), CFLintConfig.class);
