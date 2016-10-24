@@ -2,6 +2,7 @@ package com.cflint.integration;
 
 import java.util.ArrayList;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.cflint.config.CFLintPluginInfo;
@@ -11,7 +12,6 @@ import com.cflint.config.CFLintRuleGroups;
 import com.cflint.config.CFLintRuleGroups.RuleSet;
 import com.cflint.config.ConfigUtils;
 
-import junit.framework.Assert;
 
 public class TestCFRuleGroupConfig {
 
@@ -32,13 +32,13 @@ public class TestCFRuleGroupConfig {
 		}
 		ArrayList<String> xgroupedMesgs = new ArrayList<String>(groupedMesgs);
 		xgroupedMesgs.removeAll(allMesgs);
-		if(xgroupedMesgs.size() > 0 || allMesgs.size()>0){
-		System.out.println("-- listed in groups, but not defined in definition ----");
-		System.out.println(xgroupedMesgs);
 		allMesgs.removeAll(groupedMesgs);
-		System.out.println("-- listed in definition, but not defined in groups ----");
-		System.out.println(allMesgs);
-		Assert.fail("cflint.definition.json and cflint.rulesets.json should agree");
+		if(xgroupedMesgs.size() > 0 || allMesgs.size()>0){
+			System.out.println("-- listed in groups, but not defined in definition ----");
+			System.out.println(xgroupedMesgs);
+			System.out.println("-- listed in definition, but not defined in groups ----");
+			System.out.println(allMesgs);
+			Assert.fail("cflint.definition.json and cflint.rulesets.json should agree");
 		}
 	}
 }
