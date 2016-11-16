@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerException;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -61,9 +62,9 @@ public class TestFiles {
 	
 	@Test
 	public void test() throws IOException, URISyntaxException, JAXBException, TransformerException {
-		final String inputString = loadFile(sourceFile);
+		final String inputString = IOUtils.toString(new FileInputStream(sourceFile),"UTF-8");
 		final File expectedFile = new File(sourceFile.getPath().replaceAll("\\.cf.", ".expected.txt"));
-		final String expectedFileText = expectedFile.exists() ? loadFile(expectedFile) : null;
+		final String expectedFileText = expectedFile.exists() ? IOUtils.toString(new FileInputStream(expectedFile),"UTF-8") : null;
 		String expectedText = expectedFileText ;
 	
 		final CFLintConfig config = loadPluginInfo(sourceFile.getParentFile());
@@ -126,13 +127,6 @@ public class TestFiles {
 				}
 			}
 		}
-	}
-	public static String loadFile(File file) throws IOException {
-		InputStream is = new FileInputStream(file);
-		byte[] b = new byte[is.available()];
-		is.read(b);
-		is.close();
-		return new String(b);
 	}
 	
 	public static CFLintConfig loadPluginInfo(File folder) throws IOException {
